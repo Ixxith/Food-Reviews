@@ -1,0 +1,47 @@
+﻿@{
+    ViewData["Title"] = "View Suggestions";
+}
+
+<div class="text-center">
+    <h1 class="display-4">@ViewBag.Title</h1>
+
+
+
+    <div class="text-center">
+
+        <!-- Iterate through loop using Enumerable list of Suggestions -->
+        @model IEnumerable<Suggestion>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Restaurant Name
+                    </th>
+                    <th>
+                        Favorite Dish
+                    </th>
+                    <th>
+                        Mobile Phone
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Suggestion x in Model)
+                {
+                    <tr>
+                        <td>@x.Name</td>
+                        <td>@x.RestaurantName</td>
+                        <td>@x.FavoriteDish</td>
+                        <td>@x.MobilePhone</td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>

@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Submit";
+}
+
+@model Suggestion
+
+<div class="text-center">
+    <h1 class="display-4">@ViewBag.Title Suggestions</h1>
+
+
+
+    <!-- Form for submitting suggestions -->
+    <form asp-action="SubmitSuggestion" method="post">
+        <label class="col-form-label" asp-for="Name">Name</label>
+        <input class="form-control" asp-for="Name" />
+        <label class="col-form-label" asp-for="RestaurantName">Restaurant Name</label>
+        <input class="form-control" asp-for="RestaurantName" />
+        <label class="col-form-label" asp-for="FavoriteDish">Favorite Dish</label>
+        <input class="form-control" asp-for="FavoriteDish" />
+        <label class="col-form-label" asp-for="MobilePhone">Mobile Phone</label>
+        <input class="form-control" asp-for="MobilePhone" />
+        <br />
+        <button type="submit" class="btn btn-dark">Submit</button>
+        <br />
+        <div class="list-group" asp-validation-summary="All"></div>
+    </form>
+</div>

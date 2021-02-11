@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model IEnumerable<Restaurant>
+
+<div class="text-center">
+    <h1 class="display-4">@ViewBag.Title</h1>
+   <h1> Top 5 Restaurants</h1>
+    <div class="card-deck">
+        <!-- Iterate through loop using Enumerable list of Restaurants -->
+        @foreach (Restaurant res in Model)
+        {
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">@res.RestaurantName</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Rank #@res.Rank</h6>
+                    <p class="card-text"><b>Favorite Dish:</b>   @res.FavoriteDish</p>
+                    <p class="card-text"><b>Address:</b> @res.Address</p>
+                    <p class="card-text"><b>Phone Number:</b> @res.MobilePhone</p>
+                    <p class="card-text"><b>Website:</b></p>
+                    @if (res.Website.Equals("Coming soon"))
+                    {
+                        <p class="card-text">
+                            Coming soon.
+                        </p>
+                    }
+                    else
+                    {
+                        <a href="@res.Website" target="_blank" class="btn btn-primary"> Visit website</a>
+                    }
+
+
+                </div>
+            </div>
+        }
+        </div>
+    </div>
